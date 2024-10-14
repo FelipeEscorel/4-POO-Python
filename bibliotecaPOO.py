@@ -79,26 +79,48 @@ class Vaca(Animal):
         print(f"A {self.nome} está mugindo.")
 
 class Atleta:
-    def __init__(self,peso):
+    def __init__(self,nome, peso):
         self.aposentado = False
+        self.aquecido = False
+        self.nome = nome
         self.peso = peso
     def aquecer(self):
-        print("O atleta está aquecendo.")
+        print(f"O atleta {self.nome} aqueceu.")
+        self.aquecido = True
     def aposentar(self):
-        print("O atleta está se aposentado.")
+        print(f"O atleta {self.nome} está se aposentando.")
+        self.aposentado = True
 class Corredor(Atleta):
-    def __init__(self, peso):
-        super().__init__(peso)
+    def __init__(self, nome, peso):
+        super().__init__(nome, peso)
 
     def correr(self):
-        print("O atleta está correndo.")
+        if self.aquecido == True:
+            if self.aposentado == False:
+                print(f"O corredor {self.nome} está correndo.")
+            else:
+                print(f"{self.nome} não pode correr pois está aposentado.")
+        else:
+            print(f"{self.nome} não pode correr porque não aqueceu.")
 class Nadador(Atleta):
-    def __init__(self, peso):
-        super().__init__(peso)
+    def __init__(self, nome, peso):
+        super().__init__(nome, peso)
     def nadar(self):
-        print("O atleta está nadando.")
+        if self.aquecido == True:
+            if self.aposentado == False:
+                print(f"O nadador {self.nome} está nadando.")
+            else:
+                print(f"{self.nome} não pode nadar pois está aposentado.")
+        else:
+            print(f"{self.nome} não pode nadar porque não aqueceu.")
 class Ciclista(Atleta):
-    def __init__(self, peso):
-        super().__init__(peso)
+    def __init__(self, nome, peso):
+        super().__init__(nome, peso)
     def pedalar(self):
-        print("O atleta está pedalando.")
+        if self.aquecido == True:
+            if self.aposentado == False:
+                print(f"O ciclista {self.nome} está pedalando.")
+            else:
+                print(f"{self.nome} não pode pedalar pois está aposentado.")
+        else:
+            print(f"{self.nome} não pode pedalar porque não aqueceu.")
