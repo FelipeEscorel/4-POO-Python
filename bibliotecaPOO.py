@@ -81,15 +81,29 @@ class Vaca(Animal):
 class Atleta:
     def __init__(self,nome, peso):
         self.aposentado = False
+        self.desaposentado = False
         self.aquecido = False
         self.nome = nome
         self.peso = peso
+
     def aquecer(self):
-        print(f"O atleta {self.nome} aqueceu.")
-        self.aquecido = True
+        if self.aposentado == False:
+            if self.aquecido == False:
+                print(f"O atleta {self.nome} aqueceu.")
+                self.aquecido = True
+            else:
+                print(f"O atleta {self.nome} não deve aquecer novamente.")
+        else:
+            print(f"O atleta {self.nome} não pode aquecer, pois está aposentado.")
+
     def aposentar(self):
         print(f"O atleta {self.nome} está se aposentando.")
         self.aposentado = True
+
+    def desaposentar(self):
+        print(f"O atleta {self.nome} está de volta à ativa.")
+        self.aposentado = False
+        self.aquecido = False
 class Corredor(Atleta):
     def __init__(self, nome, peso):
         super().__init__(nome, peso)
@@ -127,4 +141,4 @@ class Ciclista(Atleta):
 class Triatleta(Corredor, Nadador, Ciclista):
     def __init__(self, nome, peso):
         super().__init__(nome, peso)
-
+        
