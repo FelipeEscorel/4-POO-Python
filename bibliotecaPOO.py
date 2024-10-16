@@ -101,9 +101,12 @@ class Atleta:
         self.aposentado = True
 
     def desaposentar(self):
-        print(f"O atleta {self.nome} está de volta à ativa.")
-        self.aposentado = False
-        self.aquecido = False
+        if self.aposentado == True:
+            print(f"O atleta {self.nome} está de volta à ativa.")
+            self.aposentado = False
+            self.aquecido = False
+        else:
+            print(f"O atleta {self.nome} não pode desaposentar, pois ainda não é aposentado.")
 class Corredor(Atleta):
     def __init__(self, nome, peso):
         super().__init__(nome, peso)
