@@ -19,6 +19,7 @@ class Pessoa:
                 print(f"{self.nome} já está dormindo")
         else:
             print("Já está falando.")
+
     def parar_falar(self):
         print(f"{self.nome} parou de falar.")
         self.falando = False
@@ -35,6 +36,7 @@ class Pessoa:
                 print(f"{self.nome} não pode comer, pois está falando.")
         else:
             print(f"{self.nome} já está comendo.")
+
     def parar_comer(self):
         print(f"{self.nome} parou de comer.")
 
@@ -50,6 +52,7 @@ class Pessoa:
                 print(f"{self.nome} não pode dormir, pois está comendo.")
         else:
             print(f"{self.nome} já está dormindo.")
+
     def acordar(self):
         print(f"{self.nome} acordou.")
 
@@ -69,6 +72,7 @@ class Gato(Animal):
 class Cachorro(Animal):
     def __init__(self, nome, cor):
         super().__init__(nome, cor)
+
     def latir(self):
         print(f"O {self.nome} está latindo.")
 class Vaca(Animal):
@@ -79,7 +83,7 @@ class Vaca(Animal):
         print(f"A {self.nome} está mugindo.")
 
 class Atleta:
-    def __init__(self,nome, peso):
+    def __init__(self, nome, peso):
         self.aposentado = False
         self.desaposentado = False
         self.aquecido = False
@@ -122,6 +126,7 @@ class Corredor(Atleta):
 class Nadador(Atleta):
     def __init__(self, nome, peso):
         super().__init__(nome, peso)
+
     def nadar(self):
         if self.aquecido == True:
             if self.aposentado == False:
@@ -133,6 +138,7 @@ class Nadador(Atleta):
 class Ciclista(Atleta):
     def __init__(self, nome, peso):
         super().__init__(nome, peso)
+
     def pedalar(self):
         if self.aquecido == True:
             if self.aposentado == False:
@@ -144,4 +150,11 @@ class Ciclista(Atleta):
 class Triatleta(Corredor, Nadador, Ciclista):
     def __init__(self, nome, peso):
         super().__init__(nome, peso)
-        
+
+def gravar_texto(texto):
+    with open("registro.txt", "a") as arquivo:
+        arquivo.write(f"{texto}\n")
+def ler_texto():
+    with open("registro.txt", "r") as arquivo2:
+        texto = arquivo2.read()
+        print(texto)
