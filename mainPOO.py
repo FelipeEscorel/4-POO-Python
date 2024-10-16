@@ -40,3 +40,17 @@ tri1.desaposentar()
 tri1.correr()
 tri1.aquecer()
 tri1.correr()
+print()
+cont = 0
+while cont == 0:
+    num = int(input("1 - Gravar texto\n2 - Ler texto\n3 - Sair\n"))
+    if num == 1:
+        texto = input("Digite um texto: ")
+        gravar_texto(texto)
+    elif num == 2:
+        ler_texto()
+    elif num == 3:
+        print("Fim do programa")
+        cont += 1
+    else:
+        print("Opção indisponível")
