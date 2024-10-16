@@ -124,3 +124,7 @@ class Ciclista(Atleta):
                 print(f"{self.nome} não pode pedalar pois está aposentado.")
         else:
             print(f"{self.nome} não pode pedalar porque não aqueceu.")
+class Triatleta(Corredor, Nadador, Ciclista):
+    def __init__(self, nome, peso):
+        super().__init__(nome, peso)
+
